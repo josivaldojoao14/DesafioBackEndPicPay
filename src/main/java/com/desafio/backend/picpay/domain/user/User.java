@@ -1,5 +1,6 @@
 package com.desafio.backend.picpay.domain.user;
 
+import com.desafio.backend.picpay.dtos.UserDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,4 +28,15 @@ public class User {
     private BigDecimal balance;
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    public User(UserDto userDto) {
+        this.firstName = userDto.firstName();
+        this.lastName = userDto.lastName();
+        this.document = userDto.document();
+        this.email = userDto.email();
+        this.password = userDto.password();
+        this.balance = userDto.balance();
+        this.userType = userDto.userType();
+    }
+
 }
