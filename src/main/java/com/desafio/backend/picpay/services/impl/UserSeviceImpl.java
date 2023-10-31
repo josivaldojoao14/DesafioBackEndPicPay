@@ -1,9 +1,10 @@
-package com.desafio.backend.picpay.services;
+package com.desafio.backend.picpay.services.impl;
 
 import com.desafio.backend.picpay.domain.user.User;
 import com.desafio.backend.picpay.domain.user.UserType;
 import com.desafio.backend.picpay.dtos.UserDto;
 import com.desafio.backend.picpay.repositories.UserRepository;
+import com.desafio.backend.picpay.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-public class UserSevice {
+public class UserSeviceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 

@@ -2,7 +2,7 @@ package com.desafio.backend.picpay.controllers;
 
 import com.desafio.backend.picpay.domain.transaction.Transaction;
 import com.desafio.backend.picpay.dtos.TransactionDto;
-import com.desafio.backend.picpay.services.TransactionService;
+import com.desafio.backend.picpay.services.impl.TransactionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/transactions")
 public class TransactionController {
     @Autowired
-    private TransactionService transactionService;
+    private TransactionServiceImpl transactionServiceImpl;
 
     @PostMapping
     public ResponseEntity<Transaction> createTransaction(@RequestBody TransactionDto transactionDto) throws Exception {
-        Transaction newTransaction = this.transactionService.createTransaction(transactionDto);
+        Transaction newTransaction = this.transactionServiceImpl.createTransaction(transactionDto);
         return new ResponseEntity<Transaction>(newTransaction, HttpStatus.CREATED);
     }
 }
